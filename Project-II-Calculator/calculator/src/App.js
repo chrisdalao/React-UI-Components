@@ -40,15 +40,15 @@ const App = () => {
         <div className="calculator-buttons">
           <div className="number-buttons">
             <ActionButton text={clearButton} buttonStyle={actionClass} />
-            <NumberButton text={num1} buttonStyle={numClass} />
-            <NumberButton text={num2} buttonStyle={numClass} />
-            <NumberButton text={num3} buttonStyle={numClass} />
-            <NumberButton text={num4} buttonStyle={numClass} />
-            <NumberButton text={num5} buttonStyle={numClass} />
-            <NumberButton text={num6} buttonStyle={numClass} />
             <NumberButton text={num7} buttonStyle={numClass} />
             <NumberButton text={num8} buttonStyle={numClass} />
             <NumberButton text={num9} buttonStyle={numClass} />
+            <NumberButton text={num4} buttonStyle={numClass} />
+            <NumberButton text={num5} buttonStyle={numClass} />
+            <NumberButton text={num6} buttonStyle={numClass} />
+            <NumberButton text={num1} buttonStyle={numClass} />
+            <NumberButton text={num2} buttonStyle={numClass} />
+            <NumberButton text={num3} buttonStyle={numClass} />
             <ActionButton text={zeroButton} buttonStyle={actionClass} />
           </div>
           <div className="math-buttons">
