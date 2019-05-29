@@ -10,21 +10,10 @@ const App = () => {
   const displayCharacter = "0";
 
   const zeroButton = "0";
-  const num1 = "1";
-  const num2 = "2";
-  const num3 = "3";
-  const num4 = "4";
-  const num5 = "5";
-  const num6 = "6";
-  const num7 = "7";
-  const num8 = "8";
-  const num9 = "9";
 
-  const mathButtonDivide = "÷";
-  const mathButtonMultiply = "x";
-  const mathButtonSubtract = "-";
-  const mathButtonAdd = "+";
-  const mathButtonEquals = "=";
+  const nums = [7, 8, 9, 4, 5, 6, 1, 2, 3];
+
+  const mathButtons = ["÷", "x", "-", "+", "="];
 
   const clearButton = "clear";
 
@@ -40,23 +29,19 @@ const App = () => {
         <div className="calculator-buttons">
           <div className="number-buttons">
             <ActionButton text={clearButton} buttonStyle={actionClass} />
-            <NumberButton text={num7} buttonStyle={numClass} />
-            <NumberButton text={num8} buttonStyle={numClass} />
-            <NumberButton text={num9} buttonStyle={numClass} />
-            <NumberButton text={num4} buttonStyle={numClass} />
-            <NumberButton text={num5} buttonStyle={numClass} />
-            <NumberButton text={num6} buttonStyle={numClass} />
-            <NumberButton text={num1} buttonStyle={numClass} />
-            <NumberButton text={num2} buttonStyle={numClass} />
-            <NumberButton text={num3} buttonStyle={numClass} />
+            {nums.map(num => {
+              return (
+                <NumberButton key={num} buttonStyle={numClass} text={num} />
+              );
+            })}
             <ActionButton text={zeroButton} buttonStyle={actionClass} />
           </div>
           <div className="math-buttons">
-            <NumberButton text={mathButtonDivide} buttonStyle={mathBtnClass} />
-            <NumberButton text={mathButtonMultiply} buttonStyle={mathBtnClass} />
-            <NumberButton text={mathButtonSubtract} buttonStyle={mathBtnClass} />
-            <NumberButton text={mathButtonAdd} buttonStyle={mathBtnClass} />
-            <NumberButton text={mathButtonEquals} buttonStyle={mathBtnClass} />
+            {mathButtons.map(mathBtn => {
+              return(
+                <NumberButton key={mathBtn} buttonStyle={mathBtnClass} text={mathBtn}/>
+              )
+            })}
           </div>
         </div>
       </div>
