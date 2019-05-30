@@ -5,48 +5,73 @@ import NumberButton from './components/ButtonComponents/NumberButton';
 import ActionButton from './components/ButtonComponents/NumberButton';
 import CalculatorDisplay from './components/DisplayComponents/CalculatorDisplay';
 
-const App = () => {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      displayCharacter: "0",
 
-  const displayCharacter = "0";
+      zeroButton: "0",
 
-  const zeroButton = "0";
+      nums: [7, 8, 9, 4, 5, 6, 1, 2, 3],
 
-  const nums = [7, 8, 9, 4, 5, 6, 1, 2, 3];
+      mathButtons: ["÷", "x", "-", "+", "="],
 
-  const mathButtons = ["÷", "x", "-", "+", "="];
+      clearButton: "clear",
 
-  const clearButton = "clear";
+      numClass: "num-button",
+      actionClass: "action-button",
+      displayClass: "calc-display",
+      mathBtnClass: "math-button"
 
-  const numClass = "num-button";
-  const actionClass = "action-button";
-  const displayClass = "calc-display";
-  const mathBtnClass = "math-button";
+    }
+  }
 
-  return (
-    <div className="app">
-      <div className="calculator-container">
-        <CalculatorDisplay text={displayCharacter} displayStyle={displayClass} />
-        <div className="calculator-buttons">
-          <div className="number-buttons">
-            <ActionButton text={clearButton} buttonStyle={actionClass} />
-            {nums.map(num => {
-              return (
-                <NumberButton key={num} buttonStyle={numClass} text={num} />
-              );
-            })}
-            <ActionButton text={zeroButton} buttonStyle={actionClass} />
-          </div>
-          <div className="math-buttons">
-            {mathButtons.map(mathBtn => {
-              return(
-                <NumberButton key={mathBtn} buttonStyle={mathBtnClass} text={mathBtn}/>
-              )
-            })}
+
+  render() {
+    return (
+      <div className="app" >
+        <div className="calculator-container">
+          <CalculatorDisplay
+            text={this.state.displayCharacter}
+            displayStyle={this.state.displayClass}
+          />
+          <div className="calculator-buttons">
+            <div className="number-buttons">
+              <ActionButton
+                text={this.state.clearButton}
+                buttonStyle={this.state.actionClass}
+              />
+              {this.state.nums.map(num => {
+                return (
+                  <NumberButton
+                    key={num}
+                    buttonStyle={this.state.numClass}
+                    text={num}
+                  />
+                );
+              })}
+              <ActionButton
+                text={this.state.zeroButton}
+                buttonStyle={this.state.actionClass}
+              />
+            </div>
+            <div className="math-buttons">
+              {this.state.mathButtons.map(mathBtn => {
+                return (
+                  <NumberButton
+                    key={mathBtn}
+                    buttonStyle={this.state.mathBtnClass}
+                    text={mathBtn}
+                  />
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default App;
